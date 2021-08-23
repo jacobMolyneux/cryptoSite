@@ -1,0 +1,12 @@
+#DataTableContainer {
+  border: 3px solid black;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+#graphContainer {
+  height: 350px;
+  width: 350px;
+}

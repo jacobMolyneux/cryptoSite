@@ -1,0 +1,19 @@
+#cardContainer {
+  display: flex;
+  border: 2px solid rgba(255, 99, 132, 1);
+  width: 300px;
+  margin: 10px;
+  border-radius: 4px;
+  justify-content: space-around;
+  align-items: center;
+}
+#cardContainer:hover {
+  background: rgb(230, 221, 221);
+}
+#name {
+  padding: 3px;
+  color: rgba(255, 99, 132, 1);
+}
+#priceDisplay {
+  padding: 3px;
+}
