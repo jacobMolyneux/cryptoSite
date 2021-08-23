@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/cryptoSite/static/css/main.0453931e.chunk.css",
+    "main.js": "/cryptoSite/static/js/main.31e4adcd.chunk.js",
+    "main.js.map": "/cryptoSite/static/js/main.31e4adcd.chunk.js.map",
+    "runtime-main.js": "/cryptoSite/static/js/runtime-main.e7f95f34.js",
+    "runtime-main.js.map": "/cryptoSite/static/js/runtime-main.e7f95f34.js.map",
+    "static/js/2.450e694c.chunk.js": "/cryptoSite/static/js/2.450e694c.chunk.js",
+    "static/js/2.450e694c.chunk.js.map": "/cryptoSite/static/js/2.450e694c.chunk.js.map",
+    "index.html": "/cryptoSite/index.html",
+    "static/css/main.0453931e.chunk.css.map": "/cryptoSite/static/css/main.0453931e.chunk.css.map",
+    "static/js/2.450e694c.chunk.js.LICENSE.txt": "/cryptoSite/static/js/2.450e694c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e7f95f34.js",
+    "static/js/2.450e694c.chunk.js",
+    "static/css/main.0453931e.chunk.css",
+    "static/js/main.31e4adcd.chunk.js"
+  ]
+}
