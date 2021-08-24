@@ -26,10 +26,10 @@ export default function App() {
             <CoinCard coinCode="ETH" />
           </div>
           <button
-            id="showTable"
+            id="hideTable"
             onClick={() => setTableVisibility((tableVisibility = false))}
           >
-            Hide Table
+            X
           </button>
           <DataTable />
         </div>

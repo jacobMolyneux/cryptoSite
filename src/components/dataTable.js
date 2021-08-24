@@ -39,7 +39,7 @@ const DataTable = () => {
     console.log(timeLabels);
     const Chart = () => {
       setChartData({
-        labels: timeLabels,
+        labels: timeLabels.reverse(),
         datasets: [
           {
             label: "CoinPrice",
@@ -63,6 +63,7 @@ const DataTable = () => {
       <div id="CoinNameDisplayDiv">
         <h1 id="NameDisplay"> {coinName} </h1>
         <form
+          id="coinSelector"
           onChange={(e) => {
             setCoinName((coinName = e.target.value));
             getHistoricalData();

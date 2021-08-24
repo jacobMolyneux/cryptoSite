@@ -10,3 +10,21 @@
   height: 350px;
   width: 350px;
 }
+#NameDisplay {
+  color: rgba(255, 99, 132, 1);
+}
+#CoinNameDisplayDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#coinSelector {
+  display: flex;
+  align-items: center;
+}
+#coins {
+  width: 100px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
