@@ -1,7 +1,7 @@
 #DataTableContainer {
   border: 3px solid black;
   height: 400px;
-  width: 400px;
+  width: 600px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -27,4 +27,7 @@
   display: flex;
   text-align: center;
   align-items: center;
+}
+#LineChart {
+  width: 500px;
 }

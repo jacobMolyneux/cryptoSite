@@ -6,6 +6,7 @@ import { Line } from "react-chartjs-2";
 const DataTable = () => {
   const [chartData, setChartData] = useState({});
   let [coinName, setCoinName] = useState("BTC");
+  let [currentPrice, setCurrentPrice] = useState(0);
 
   const key = "8C2R26DMRMVREBOX";
 
@@ -32,6 +33,7 @@ const DataTable = () => {
         Number(coinInfo["4a. close (USD)"])
       );
     }
+    setCurrentPrice(({ currentPrice } = ohlc.slice(-1)));
 
     console.log(`the ohlc values are: `);
     console.log(ohlc);
@@ -61,7 +63,11 @@ const DataTable = () => {
   return (
     <div id="DataTableContainer">
       <div id="CoinNameDisplayDiv">
-        <h1 id="NameDisplay"> {coinName} </h1>
+        <h1 id="NameDisplay">
+          {" "}
+          {coinName} ${currentPrice}{" "}
+        </h1>
+
         <form
           id="coinSelector"
           onChange={(e) => {
@@ -90,8 +96,10 @@ const DataTable = () => {
       </div>
       <div id="graphContainer">
         <Line
+          id="LineChart"
           data={chartData}
           options={{
+            maintainAspectRatio: false,
             scales: {
               x: {
                 type: "time",

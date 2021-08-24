@@ -11,7 +11,7 @@ export default function App() {
     return (
       <div id="App">
         <div id="siteBanner">
-          <h1>Panopticon</h1>
+          <h1 id="title">Crypto Tracker</h1>
         </div>
         <p>
           A Note: If the data is not loading there may be an issue with the
@@ -39,7 +39,7 @@ export default function App() {
     return (
       <div id="App">
         <div id="siteBanner">
-          <h1>Panopticon</h1>
+          <h1 id="title">Crypto Tracker</h1>
         </div>
 
         <div id="CoinCardsContainer">
