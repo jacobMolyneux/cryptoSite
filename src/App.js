@@ -6,6 +6,7 @@ import { DataTable } from "./components/dataTable";
 
 export default function App() {
   let [tableVisibility, setTableVisibility] = useState(false);
+  let [tableData, setTableData] = useState("");
   if (tableVisibility === true) {
     return (
       <div id="App">
