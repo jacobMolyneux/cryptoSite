@@ -8,7 +8,18 @@ const DataTable = () => {
   let [coinName, setCoinName] = useState("BTC");
   let [currentPrice, setCurrentPrice] = useState(0);
 
-  const key = "8C2R26DMRMVREBOX";
+  const keyArray = [
+    "8C2R26DMRMVREBOX",
+    "M22S93GHXW8SM3TU",
+    "BZ7HSU1PYBF9T67U",
+    "RWCKW330S2HNET54",
+  ];
+
+  const chooseKeyArray = () => {
+    let selector = Math.round(Math.random() * 3);
+    console.log(`the key that was used was: ${keyArray[selector]}`);
+    return keyArray[selector];
+  };
 
   // ohlc is an Open, high, low, close array in that format
   let ohlc = [];
@@ -16,7 +27,7 @@ const DataTable = () => {
 
   async function getHistoricalData() {
     const response = await fetch(
-      `https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${coinName}&market=USD&apikey=${key}`
+      `https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${coinName}&market=USD&apikey=${chooseKeyArray()}`
     );
     const data = await response.json();
     console.log("historical Data is:");
@@ -46,8 +57,8 @@ const DataTable = () => {
           {
             label: "CoinPrice",
             data: ohlc.reverse(),
-            backgroundColor: ["rgba(255, 99, 132, 0.2)"],
-            borderColor: ["rgba(255, 99, 132, 1)"],
+            backgroundColor: ["rgba(245, 99, 132, 0.2)"],
+            borderColor: ["rgba(245, 99, 132, 1)"],
             borderWidth: 1,
           },
         ],
