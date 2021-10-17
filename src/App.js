@@ -1,40 +1,38 @@
-import "./App.css";
-
-import CoinCard from "./components/coinCard.js";
-import { useState } from "react";
-import { DataTable } from "./components/dataTable";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Homepage } from "./pages/homepage";
+import { SignUpPage } from "./pages/signInPage";
+import { LogInPage } from "./pages/loginPage";
+import Nav from "react-bootstrap/Nav";
 export default function App() {
-  let [tableVisibility, setTableVisibility] = useState(false);
-  let [tableData, setTableData] = useState("");
-
   return (
-    <div id="App">
-      <div id="siteBanner">
-        <h1 id="title">Crypto Tracker</h1>
+    <Router>
+      <div>
+        <Nav horizontal>
+          <Nav.Item className="m-3">
+            <Link to="/">Home</Link>
+          </Nav.Item>
+          <Nav.Item className="m-3">
+            <Link to="/SignIn">Sign In</Link>
+          </Nav.Item>
+          <Nav.Item className="m-3">
+            <Link to="/SignUp">Sign Up</Link>
+          </Nav.Item>
+        </Nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/SignIn">
+            <LogInPage />
+          </Route>
+          <Route path="/SignUp">
+            <SignUpPage />
+          </Route>
+          <Route path="/">
+            <Homepage />
+          </Route>
+        </Switch>
       </div>
-      <p>
-        A Note: If the data is not loading there may be an issue with the number
-        of requests being made per minute. AlphaVantage only allows 5
-        requests/min so you may need to wait a minute before it functions
-        properly. This is also why there are only 2 coins that can be used other
-        wise the application exceeds the rate limit.
-      </p>
-      <div id="dataDisplayContainer">
-        <div id="CoinCardsContainer">
-          <CoinCard coinCode="BTC" />
-          <CoinCard coinCode="ETH" />
-          <CoinCard coinCode="XRP" />
-          <CoinCard coinCode="LTC" />
-        </div>
-        <button
-          id="hideTable"
-          onClick={() => setTableVisibility((tableVisibility = false))}
-        >
-          X
-        </button>
-        <DataTable />
-      </div>
-    </div>
+    </Router>
   );
 }
