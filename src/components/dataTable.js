@@ -17,7 +17,6 @@ const DataTable = () => {
 
   const chooseKeyArray = () => {
     let selector = Math.round(Math.random() * 3);
-    console.log(`the key that was used was: ${keyArray[selector]}`);
     return keyArray[selector];
   };
 
