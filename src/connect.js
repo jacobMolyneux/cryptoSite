@@ -15,7 +15,7 @@ async function getHistoricalData(symbol, exchange) {
   await fetch(
     `https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${symbol}&market=${exchange}&apikey=${key}`,
     {
-      methond: "GET",
+      method: "GET",
     }
   )
     .then((res) => res.json())
@@ -24,4 +24,10 @@ async function getHistoricalData(symbol, exchange) {
       console.log(data);
     });
 }
-export { getExchangeRate, getHistoricalData };
+async function  getCBData(symbol, baseCurrency){
+  await fetch('https://api.coinbase.com/v2/exchange-rates', {
+    method: "GET",
+  }).then((res) => res.json())
+  .then((data) => console.log(data))
+}
+export { getExchangeRate, getHistoricalData, getCBData };
