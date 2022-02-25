@@ -10,11 +10,13 @@ auth = tweepy.OAuth1UserHandler(api_key, api_secret_key, access_token, access_to
 
 api = tweepy.API(auth)
 
-# public_tweets = api.home_timeline()
-# for tweet in public_tweets:
-#     print(tweet.text)
 
-response = api.search_tweets('bitcoin', lang ='en', count = 10)
-for i in response:
-    print(i.text)
+def search_twitter(topic):
+    response = api.search_tweets(topic, lang = 'en', count = 10)
+    tweet_list = []
+    for tweet in response:
+        tweet_list.append({"Text": tweet.text, "Time": tweet.created_at})
+    return tweet_list
 
+
+print(search_twitter('Russia'))
