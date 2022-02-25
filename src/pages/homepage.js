@@ -9,7 +9,7 @@ import  ListGroup from "react-bootstrap/ListGroup";
 const Homepage = () => {
   let [tableVisibility, setTableVisibility] = useState(false);
   let [tableData, setTableData] = useState("");
-  let [portfolio, setPortfolio] = useState(['BTC', "ETH", "LTC", "SOL","ADA"])
+  let [portfolio, setPortfolio] = useState(['BTC', "ETH", "SOL"])
   let [show, setShow] = useState(false);
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true);
