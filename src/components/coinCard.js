@@ -38,7 +38,7 @@ export default function CoinCard(props) {
       <Card.Title className = 'text-primary'>{props.Name}</Card.Title>
       </Card.Header>
       <Card.Body className = 'text-dark'>
-        <Card.Text>Price: $1000</Card.Text>
+        <Card.Text>$ {props.Price}</Card.Text>
         <Card.Text>Sentiment: .035</Card.Text>
       </Card.Body>
     </Card>

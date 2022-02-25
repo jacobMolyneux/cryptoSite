@@ -24,10 +24,17 @@ async function getHistoricalData(symbol, exchange) {
       console.log(data);
     });
 }
-async function  getCBData(symbol, baseCurrency){
-  await fetch('https://api.coinbase.com/v2/exchange-rates', {
+async function  getCurrentPrice(symbol){
+  await fetch(`https://api.coinbase.com/v2/prices/btc-usd/buy`, {
     method: "GET",
-  }).then((res) => res.json())
-  .then((data) => console.log(data))
+  }).then((res) => {
+    return res.json().then((data) => {
+      console.log(data)
+      return data
+    }
+      )
+    }
+    )
+  
 }
-export { getExchangeRate, getHistoricalData, getCBData };
+export { getExchangeRate, getHistoricalData, getCurrentPrice };
