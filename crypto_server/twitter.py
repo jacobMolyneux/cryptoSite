@@ -11,13 +11,20 @@ auth = tweepy.OAuth1UserHandler(api_key, api_secret_key, access_token, access_to
 
 api = tweepy.API(auth)
 
+def average_sentiment(sentiment_data):
+    sentiment_sum = 0
+    for i in sentiment_data:
+        sentiment_sum += i['Sentiment']
+    return sentiment_sum/(len(sentiment_data))
 
 def search_twitter(topic):
     response = api.search_tweets(topic, lang = 'en', count = 10)
     tweet_list = []
     for tweet in response:
-        tweet_list.append({"Text": tweet.text, "Time": tweet.created_at})
-    return tweet_list
+        analyzer = SentimentIntensityAnalyzer()
+        sentiment = analyzer.polarity_scores(tweet.text)
+        tweet_list.append({"Date": tweet.created_at, "Text": tweet.text, "Sentiment":sentiment['compound']})
+    return average_sentiment(tweet_list)
 
 
-
+    
