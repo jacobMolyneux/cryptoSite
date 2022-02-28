@@ -1,5 +1,6 @@
 import requests
 import tweepy
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 api_key = '8jw9tY4SvQhR9HN5TPRi8RBRp'
 api_secret_key = 'XDNj5HICwxBffwLolOukA4OZTd7TnKOzfiFDUAOfhueqmS2BV6'
@@ -19,4 +20,4 @@ def search_twitter(topic):
     return tweet_list
 
 
-print(search_twitter('Russia'))
+

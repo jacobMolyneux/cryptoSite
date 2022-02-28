@@ -16,7 +16,7 @@ const Homepage = () => {
   
   const mapPortfolio = portfolio.map((coinCode) => {
     return (
-      <CoinCard Name= {coinCode} Price = {getCurrentPrice}/>
+      <CoinCard Name= {coinCode} />
     )
   })
   return (
@@ -68,9 +68,6 @@ const Homepage = () => {
           <Button variant = 'primary' onClick = {handleClose}>Save</Button>
         </Modal.Footer>
       </Modal>
-
-
-
       <div id="dataDisplayContainer" className="d-flex-column">
         <Container className = 'd-flex justify-content-center'>
         <DataTable />

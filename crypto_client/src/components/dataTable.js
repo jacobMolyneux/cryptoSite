@@ -29,8 +29,6 @@ const DataTable = () => {
       `https://www.alphavantage.co/query?function=DIGITAL_CURRENCY_DAILY&symbol=${coinName}&market=USD&apikey=${chooseKeyArray()}`
     );
     const data = await response.json();
-    console.log("historical Data is:");
-    console.log(data["Time Series (Digital Currency Daily)"]);
     let coinData = data["Time Series (Digital Currency Daily)"];
 
     for (var time in coinData) {
@@ -44,11 +42,6 @@ const DataTable = () => {
       );
     }
     setCurrentPrice(({ currentPrice } = ohlc.slice(-1)));
-
-    console.log(`the ohlc values are: `);
-    console.log(ohlc);
-    console.log(" the time labels are: ");
-    console.log(timeLabels);
     const Chart = () => {
       setChartData({
         labels: timeLabels.reverse(),
