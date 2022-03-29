@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 
-import "./stylesheets/dataTable.css";
+
 import { Line } from "react-chartjs-2";
+
+import Col from 'react-bootstrap/Col'
 
 const DataTable = () => {
   const [chartData, setChartData] = useState({});
   let [coinName, setCoinName] = useState("BTC");
   let [currentPrice, setCurrentPrice] = useState(0);
+  let [high, setHigh] = useState(10000)
+  let [low, setLow] = useState(7000)
+  let [sentiment, setSentiment] = useState(0.36)
 
   const keyArray = [
     "8C2R26DMRMVREBOX",
@@ -30,7 +35,7 @@ const DataTable = () => {
     );
     const data = await response.json();
     let coinData = data["Time Series (Digital Currency Daily)"];
-
+    console.log(coinData)
     for (var time in coinData) {
       var coinInfo = coinData[time];
       timeLabels.push(String(time));
@@ -62,15 +67,34 @@ const DataTable = () => {
   useEffect(() => {
     getHistoricalData();
   }, []);
+  const setDataRange = (range) => {
+    if (range == '1d'){
+      //select one day range might need to change the api?
+    }
+    if (range == '7day'){
+      //select 7 day range
+    }
+    if (range == '1m'){
+      //select past 30 days
+    }
+    if (range == '3m'){
+      //select past 90 days
+    }
+    if (range == '6m'){
+      // select past 180 days
+    }
+    else if (range == '1y'){
+      //select past 360 days
+    }
+    else if (range =='max'){
+      //select all data
+    }
 
+  }
   return (
-    <div id="DataTableContainer">
-      <div id="CoinNameDisplayDiv">
-        <h1 id="NameDisplay">
-          {" "}
-          {coinName} ${currentPrice}{" "}
-        </h1>
-
+    <div id="DataTableContainer" style = {{width: '100%'}} className ='d-flex'>
+      <Col className = 'ml-3'>
+        <h1>{coinName}: ${currentPrice}</h1>
         <form
           id="coinSelector"
           onChange={(e) => {
@@ -81,7 +105,7 @@ const DataTable = () => {
           <label for="coin">
             <h3>Choose a coin:</h3>
           </label>
-          <select id="coins" name="coin">
+          <select id="coins" name="coin" className = 'm-3'>
             <option value="BTC" className="dropDownOption">
               BTC
             </option>
@@ -96,11 +120,18 @@ const DataTable = () => {
             </option>
           </select>
         </form>
-      </div>
-      <div id="graphContainer">
+        <h3>High: ${high}</h3>
+        <h3>Low: ${low}</h3>
+        <h3>Sentiment: {sentiment}</h3>
+
+        
+        </Col>
+        <Col>
+      <div id="graphContainer" >
         <Line
           id="LineChart"
           data={chartData}
+          style = {{width: '100%'}}
           options={{
             maintainAspectRatio: false,
             scales: {
@@ -111,6 +142,7 @@ const DataTable = () => {
             responsive: true,
             title: "Thiccness Scale",
             display: true,
+            
             scales: {
               yAxes: [
                 {
@@ -123,6 +155,7 @@ const DataTable = () => {
           }}
         />
       </div>
+      </Col>
     </div>
   );
 };

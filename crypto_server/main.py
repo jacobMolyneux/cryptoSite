@@ -11,4 +11,6 @@ def hello_world():
 @app.route('/sentiment')
 def get_sentiment(term):
     sentiment = search_twitter(term)
+    return 
+
        

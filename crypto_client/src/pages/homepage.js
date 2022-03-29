@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import  Modal from "react-bootstrap/Modal";
 import  ListGroup from "react-bootstrap/ListGroup";
+import { ChartDisplay } from "../components/chartDisplay.js";
 const Homepage = () => {
   let [tableVisibility, setTableVisibility] = useState(false);
   let [tableData, setTableData] = useState("");
@@ -69,8 +70,8 @@ const Homepage = () => {
         </Modal.Footer>
       </Modal>
       <div id="dataDisplayContainer" className="d-flex-column">
-        <Container className = 'd-flex justify-content-center'>
-        <DataTable />
+        <Container className = 'd-flex justify-content-center border'>
+          <DataTable/>
         </Container>
         <div className = 'd-flex justify-content-center border-bottom'>
         <h1>Portfolio</h1>
