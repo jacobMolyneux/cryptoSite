@@ -21,7 +21,7 @@ const Homepage = () => {
     )
   })
   return (
-    <div id="App" className = 'bg-dark text-white' >
+    <div id="App"  >
       <div id="siteBanner">
         <h1 id="title">Crypto Tracker</h1>
       </div>
@@ -70,7 +70,7 @@ const Homepage = () => {
         </Modal.Footer>
       </Modal>
       <div id="dataDisplayContainer" className="d-flex-column">
-        <Container className = 'd-flex justify-content-center border'>
+        <Container className = 'justify-content-center border'>
           <DataTable/>
         </Container>
         <div className = 'd-flex justify-content-center border-bottom'>

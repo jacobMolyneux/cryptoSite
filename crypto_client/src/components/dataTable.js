@@ -68,32 +68,33 @@ const DataTable = () => {
     getHistoricalData();
   }, []);
   const setDataRange = (range) => {
-    if (range == '1d'){
+    if (range === '1d'){
       //select one day range might need to change the api?
     }
-    if (range == '7day'){
+    else if (range === '7day'){
       //select 7 day range
     }
-    if (range == '1m'){
+    else if (range === '1m'){
       //select past 30 days
     }
-    if (range == '3m'){
+    else if (range === '3m'){
       //select past 90 days
     }
-    if (range == '6m'){
+    else if (range === '6m'){
       // select past 180 days
     }
-    else if (range == '1y'){
+    else if (range === '1y'){
       //select past 360 days
     }
-    else if (range =='max'){
+    else if (range === 'max'){
       //select all data
     }
 
   }
   return (
-    <div id="DataTableContainer" style = {{width: '100%'}} className ='d-flex'>
-      <Col className = 'ml-3'>
+    <div id="DataTableContainer" style = {{width: '100%', height: 500}} className = 'd-flex'>
+      
+      <div className = 'border' style = {{width: '10%'}}>
         <h1>{coinName}: ${currentPrice}</h1>
         <form
           id="coinSelector"
@@ -123,17 +124,31 @@ const DataTable = () => {
         <h3>High: ${high}</h3>
         <h3>Low: ${low}</h3>
         <h3>Sentiment: {sentiment}</h3>
-
+        </div>
         
-        </Col>
-        <Col>
-      <div id="graphContainer" >
-        <Line
-          id="LineChart"
+        
+        <div id = 'chart diagram' className = 'border' style = {{width: '85%'}}>
+          <div>
+            <form>
+          <label>Range</label>
+          <select>
+            <option value = '1d'>1D</option>
+            <option value = '7d'>7D</option>
+            <option value = '1m'>1m</option>
+            <option value = '3m'>3m</option>
+            <option value = '6m'>6m</option>
+            <option value = '1y'>1y</option>
+            <option value = 'max'>max</option>
+          </select>
+            </form>
+          </div>
+          <div id="graphContainer" className = 'border' >
+          <Line
+            id="LineChart"
           data={chartData}
-          style = {{width: '100%'}}
+          style = {{width: '100%', height: '100%'}}
           options={{
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
             scales: {
               x: {
                 type: "time",
@@ -147,15 +162,19 @@ const DataTable = () => {
               yAxes: [
                 {
                   ticks: {
-                    beginAtZero: true,
+                    beginAtZero: false,
                   },
                 },
               ],
             },
-          }}
-        />
+            }}
+            />
+
+          </div>
+          
+      
       </div>
-      </Col>
+      
     </div>
   );
 };
