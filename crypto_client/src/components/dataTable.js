@@ -97,8 +97,8 @@ const DataTable = () => {
   return (
     <div id="DataTableContainer" style = {{width: '100%', height: 'auto'}} className = 'd-flex-column align-items-center'>
      {/* this is the display for the selected coin that is charted */}
-      <div className = 'border border-primary m-3' >
-        <h1>{coinName}: ${currentPrice}</h1>
+      <div className = ' m-3' >
+        <h1>{coinName} Price: ${currentPrice}</h1>
         <form
           id="coinSelector"
           onChange={(e) => {
@@ -124,16 +124,14 @@ const DataTable = () => {
             </option>
           </select>
         </form>
-        <h3>High: ${high}</h3>
-        <h3>Low: ${low}</h3>
+        <p className = 'font-weight-light' style = {{fontSize: '24px'}}>High: ${high}</p>
+        <p className = 'font-weight-light' style = {{fontSize: '24px'}}>Low: ${low}</p>
         
         </div>
         {/* end of the display for the selected coin that is charted */}
         {/* this is the chart that will be shown */}
-        <div id = 'chart diagram' className = 'border border-secondary' style = {{width: '85%'}}>
-          <div>
-            
-          </div>
+        <div id = 'chartdiagram' className = 'border border-secondary' style = {{width: 'auto'}}>
+
           <div id="graphContainer" className = 'border border-primary' style = {{ height: 'auto'}} >
           <Line
             id="LineChart"

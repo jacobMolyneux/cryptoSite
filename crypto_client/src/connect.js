@@ -29,12 +29,23 @@ async function  getCurrentPrice(symbol){
     method: "GET",
   }).then((res) => {
     return res.json().then((data) => {
-      console.log(data)
       return data
-    }
-      )
-    }
-    )
+    })
+    })
   
+}
+
+async function getPossibleCoins(symbols){
+  let prices = []
+  for(let i = 0; i < symbols.length; i++){
+    await fetch(`https://api.coinbase.com/v2/prices/${i}-usd/buy`, {
+      method: 'GET',
+    }).then((res) => {
+      return res.json().then((data) => {
+        prices.push(data)
+      })
+    })
+  }
+  return prices
 }
 export { getExchangeRate, getHistoricalData, getCurrentPrice };

@@ -38,27 +38,28 @@ const Homepage = () => {
               <Button variant = 'outline-primary'>Add to Portfolio</Button>
             </ListGroup.Item>
             <ListGroup.Item className = 'd-flex justify-content-between'>
-              <h1>Bitcoin</h1>
+              <h1>Ethereum</h1>
               <Button variant = 'outline-primary'>Add to Portfolio</Button>
             </ListGroup.Item>
             <ListGroup.Item className = 'd-flex justify-content-between'>
-              <h1>Bitcoin</h1>
+              <h1>Solana</h1>
               <Button variant = 'outline-primary'>Add to Portfolio</Button>
             </ListGroup.Item>
             <ListGroup.Item className = 'd-flex justify-content-between'>
-              <h1>Bitcoin</h1>
+              <h1>Tether</h1>
               <Button variant = 'outline-primary'>Add to Portfolio</Button>
             </ListGroup.Item>
             <ListGroup.Item className = 'd-flex justify-content-between'>
-              <h1>Bitcoin</h1>
+              <h1>Cardano</h1>
               <Button variant = 'outline-primary'>Add to Portfolio</Button>
             </ListGroup.Item>
             <ListGroup.Item className = 'd-flex justify-content-between'>
-              <h1>Bitcoin</h1>
+              <h1>XRP</h1>
               <Button variant = 'outline-primary'>Add to Portfolio</Button>
             </ListGroup.Item>
             <ListGroup.Item className = 'd-flex justify-content-between'>
-              <h1>Bitcoin</h1>
+              <h1>USD Coin</h1>
+              <p>Price: $</p>
               <Button variant = 'outline-primary'>Add to Portfolio</Button>
             </ListGroup.Item>
             
