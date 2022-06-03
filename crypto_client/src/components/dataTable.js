@@ -67,6 +67,9 @@ const DataTable = () => {
   useEffect(() => {
     getHistoricalData();
   }, []);
+
+  // this could be brought out to a different page to make code cleaner
+
   const setDataRange = (range) => {
     if (range === '1d'){
       //select one day range might need to change the api?
@@ -92,9 +95,9 @@ const DataTable = () => {
 
   }
   return (
-    <div id="DataTableContainer" style = {{width: '100%', height: 500}} className = 'd-flex'>
-      
-      <div className = 'border' style = {{width: '10%'}}>
+    <div id="DataTableContainer" style = {{width: '100%', height: 'auto'}} className = 'd-flex-column align-items-center'>
+     {/* this is the display for the selected coin that is charted */}
+      <div className = 'border border-primary m-3' >
         <h1>{coinName}: ${currentPrice}</h1>
         <form
           id="coinSelector"
@@ -123,26 +126,15 @@ const DataTable = () => {
         </form>
         <h3>High: ${high}</h3>
         <h3>Low: ${low}</h3>
-        <h3>Sentiment: {sentiment}</h3>
+        
         </div>
-        
-        
-        <div id = 'chart diagram' className = 'border' style = {{width: '85%'}}>
+        {/* end of the display for the selected coin that is charted */}
+        {/* this is the chart that will be shown */}
+        <div id = 'chart diagram' className = 'border border-secondary' style = {{width: '85%'}}>
           <div>
-            <form>
-          <label>Range</label>
-          <select>
-            <option value = '1d'>1D</option>
-            <option value = '7d'>7D</option>
-            <option value = '1m'>1m</option>
-            <option value = '3m'>3m</option>
-            <option value = '6m'>6m</option>
-            <option value = '1y'>1y</option>
-            <option value = 'max'>max</option>
-          </select>
-            </form>
+            
           </div>
-          <div id="graphContainer" className = 'border' >
+          <div id="graphContainer" className = 'border border-primary' style = {{ height: 'auto'}} >
           <Line
             id="LineChart"
           data={chartData}
@@ -171,9 +163,9 @@ const DataTable = () => {
             />
 
           </div>
-          
       
       </div>
+      {/* this is the end of the chart */}
       
     </div>
   );
