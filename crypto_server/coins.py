@@ -13,4 +13,3 @@ def get_historical_data(coin):
     # [timestamp, price_low, price_high, price_open, price_close]
     response = requests.get("https://api.exchange.coinbase.com/products/{}/candles".format(coin))
     return response.text
-

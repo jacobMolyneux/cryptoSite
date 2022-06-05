@@ -130,9 +130,9 @@ const DataTable = () => {
         </div>
         {/* end of the display for the selected coin that is charted */}
         {/* this is the chart that will be shown */}
-        <div id = 'chartdiagram' className = 'border border-secondary' style = {{width: 'auto'}}>
+        <div id = 'chartdiagram' style = {{width: 'auto'}}>
 
-          <div id="graphContainer" className = 'border border-primary' style = {{ height: 'auto'}} >
+          <div id="graphContainer"  style = {{ height: 'auto'}} >
           <Line
             id="LineChart"
           data={chartData}
